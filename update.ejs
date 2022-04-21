@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Tasker</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container_Index" >
+    <h1>My Tasker</h1>
+    <ul>
+      <% taskscollection.forEach((details) => { %>
+        <% if (details._id == idupdate) { %>
+            <li>
+            <form action="/edit/<%= details._id %>" method="post">
+                <input type="text" value="<%= details.content %>" name="task" placeholder="Please Enter your Task">
+                <button type="submit">Update</button>
+                <a href="/" class="cancel">
+                    <i class="fa fas-times"></i>
+                </a>
+            </form>
+        </li>
+      <% } %>
+      <% }) %>
+    </ul>
+  </div>
+</body>
+</html>
